@@ -1,6 +1,6 @@
 # **MuSkeMo**
 
-![Horse multipanel figure](./MuSkeMo%20manual/figures/Multipanel%20figure%20cropped.png?raw=true)
+![Horse multipanel figure](./manual/figures/Multipanel%20figure%20cropped.png?raw=true)
 
 Build and visualize musculoskeletal models in [Blender](https://www.blender.org/). The plugin has been tested in Blender versions between 4.1-4.5, and the 5.0 Beta (for which support is currently experimental).
 

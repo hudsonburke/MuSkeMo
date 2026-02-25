@@ -18,8 +18,7 @@ def inertial_properties(obj):
                
     else:    
         rho = obj['density'] 
-    
-    scripts/quaternions.py
+
     bpy.ops.object.select_all(action='DESELECT') #Deselect all, then select desired object 
     obj.select_set(True)
     bpy.ops.object.transform_apply()  
@@ -34,12 +33,7 @@ def inertial_properties(obj):
         print("ERROR. Object with the name '" + obj.name + "' has non-triangular mesh faces. You must manually triangulate this mesh before computing inertial properties. Operation cancelled.")
         return{'FINISHED'}
         
-    
     vertices = obj.data.vertices #points list. Each row in vertices gives you x y z coordinate of a vertex
-
-   
-           
-
 
     vol_tet = []                #volume of each tetrahedron
     centroid_tet = []           #centroid of each tetrahedron

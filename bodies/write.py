@@ -1,13 +1,13 @@
 import bpy
-from mathutils import (Vector, Matrix)
 import numpy as np
+
+
 def write_pos_and_pbody(context, filepath, collection_name, delimiter, obj_type, number_format, self):  #write location and parent body. This is reused for both contacts and landmarks.
     
     #### obj_type is a string, either "contact" or "landmark", or something else if you reuse this further
     #### the script will fail if you don't specify it when calling the function
 
     coll = bpy.data.collections[collection_name]
-    
 
     for obj in coll.objects:
         if 'default_pose' in obj: #remove this if statement once landmarks also have a default pose
@@ -27,13 +27,10 @@ def write_pos_and_pbody(context, filepath, collection_name, delimiter, obj_type,
     if obj_type == 'CONTACT':
         header = header + ( delimiter  + 'parent_body' +  delimiter + 'parent_frame_name' + delimiter + 
                            'pos_x_in_local(m)' + delimiter + 'pos_y_in_local' + delimiter + 'pos_z_in_local')#headers
-
-
     
     file.write(header) 
     
     file.write('\n') 
-    
 
     objects = [i for i in bpy.data.collections[collection_name].objects] #get each obj from the designated collection #ADD IF STATEMENT FOR MUSKEMO TYPE?
     
@@ -41,7 +38,6 @@ def write_pos_and_pbody(context, filepath, collection_name, delimiter, obj_type,
         
         bpy.ops.object.select_all(action='DESELECT')
         
-
         obj = objects[u]
         location = obj.matrix_world.translation
         
@@ -58,16 +54,10 @@ def write_pos_and_pbody(context, filepath, collection_name, delimiter, obj_type,
             file.write(f"{obj['pos_in_parent_frame'][1]:{number_format}}{delimiter}") #y location local
             file.write(f"{obj['pos_in_parent_frame'][2]:{number_format}}") #z location local
             #contact radius?
-        
-            
-
-
-        
+       
         ## when extending this, add delimiter to both options          
         
         file.write('\n')                                                        # start a new line
-            
-   
-
+        
     file.close()
     return {'FINISHED'}
