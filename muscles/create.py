@@ -106,7 +106,7 @@ def create_muscle (muscle_name, point_position, body_name = '',
         '''
         ### seperate materials for each muscle so that they can be individually animated
 
-        from ..materials.create_muscle_material_func import create_muscle_material
+        from ..materials.muscle import create_muscle_material
 
         mat = create_muscle_material(muscle_name)
 

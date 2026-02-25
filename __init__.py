@@ -44,7 +44,7 @@ from .core.global_settings_panel import (
 
 
 #### body panel
-from .bodies.body_panel import (
+from .bodies.panel import (
     VIEW3D_PT_MuSkeMo,
     VIEW3D_PT_body_panel,
     VIEW3D_PT_vizgeometry_subpanel,
@@ -57,7 +57,7 @@ from .bodies.body_panel import (
 )
 
 #### joint panel
-from .joints.joint_panel import (
+from .joints.panel import (
     CreateNewJointOperator,
     AssignParentBodyOperator,
     AssignChildBodyOperator,
@@ -78,7 +78,7 @@ from .joints.joint_panel import (
 )
 
 #### muscle panel
-from .muscles.muscle_panel import (
+from .muscles.panel import (
     CreateNewMuscleOperator,
     AddMusclepointOperator,
     InsertMusclePointOperator,
@@ -99,7 +99,7 @@ from .muscles.muscle_panel import (
 
 
 #### inertial properties panel
-from .inertial.inertial_properties_panel import (
+from .inertial.panel import (
     MUSKEMO_UL_InPropSegmentList,
     VIEW3D_PT_inertial_prop_panel,
     VIEW3D_PT_convex_hull_subpanel,
@@ -176,7 +176,7 @@ from .core.visualization_panel import (
 )
 
 #### Anatomical (local) reference frame panel
-from .frames.frame_panel import (
+from .frames.panel import (
     VIEW3D_PT_frame_panel,
     AssignOrLandmarkOperator,
     AssignPrimaryAxisStartLandmarkOperator,
@@ -189,14 +189,14 @@ from .frames.frame_panel import (
 )
 
 #### Landmark & marker panel
-from .landmarks.landmark_marker_panel import (
+from .landmarks.panel import (
     VIEW3D_PT_landmark_panel,
     CreateLandmarkOperator,
 )
 
 
 #### Contact panel
-from .contacts.contact_panel import (
+from .contacts.panel import (
     VIEW3D_PT_contact_panel,
     CreateContactOperator,
     AssignContactParentOperator,
@@ -219,7 +219,7 @@ from .core.reflection_panel import (
 
 #### Mesh tools panel
 
-from .core.mesh_tools_panel import (
+from .mesh_tools.mesh_tools_panel import (
     VIEW3D_PT_mesh_tools_panel,
     VIEW3D_PT_mesh_alignment_subpanel,
     MeshAlignnmentICPPointToPlaneOperator,
@@ -228,7 +228,7 @@ from .core.mesh_tools_panel import (
 )
 
 #### body segment inertial properties function
-from .inertial.inertialproperties_func import (
+from .inertial.compute import (
     inertial_properties,
 )  ## This function computes inertial properties of a mesh
 

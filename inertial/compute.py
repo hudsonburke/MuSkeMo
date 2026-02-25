@@ -19,9 +19,7 @@ def inertial_properties(obj):
     else:    
         rho = obj['density'] 
     
-    
-    
-    
+    scripts/quaternions.py
     bpy.ops.object.select_all(action='DESELECT') #Deselect all, then select desired object 
     obj.select_set(True)
     bpy.ops.object.transform_apply()  

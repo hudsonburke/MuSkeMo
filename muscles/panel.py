@@ -74,7 +74,7 @@ class CreateNewMuscleOperator(Operator):
         for obj in sel_obj:
             obj.select_set(False)
 
-        from .create_muscle_func import create_muscle  #import muscle creation function
+        from .create import create_muscle  #import muscle creation function
 
         point_position = bpy.context.scene.cursor.location
         create_muscle(muscle_name = muscle_name, point_position = point_position, 
@@ -156,7 +156,7 @@ class AddMusclepointOperator(Operator):
         for obj in sel_obj:
             obj.select_set(False)
 
-        from .create_muscle_func import create_muscle  #import muscle creation function
+        from .create import create_muscle  #import muscle creation function
 
         point_position = bpy.context.scene.cursor.location
         create_muscle(muscle_name = muscle_name, point_position = point_position, 

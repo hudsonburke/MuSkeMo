@@ -41,7 +41,7 @@ class CreateNewBodyOperator(Operator):
         
         except: #if not, create the new body
             
-            from .create_body_func import create_body
+            from .create import create_body
                        
             create_body(name = name, self= self, size = rad, is_global =True, collection_name=colname)
 

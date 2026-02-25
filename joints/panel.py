@@ -34,7 +34,7 @@ class CreateNewJointOperator(Operator):
         try: bpy.data.objects[name] #check if the joint exists
         
         except:  #if not, create it
-            from .create_joint_func import create_joint
+            from .create import create_joint
                        
             create_joint(name = name, radius = rad, collection_name = colname,)
             
@@ -559,7 +559,7 @@ class FitSphereGeomOperator(Operator):
             
                
         if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-            from ..materials.create_transparent_material_func import create_transparent_material
+            from ..materials.transparent import create_transparent_material
             create_transparent_material(matname, color, transparency)
 
         mat = bpy.data.materials[matname]
@@ -676,7 +676,7 @@ class FitSphereLSOperator(Operator):
             
                
         if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-            from ..materials.create_transparent_material_func import create_transparent_material
+            from ..materials.transparent import create_transparent_material
             create_transparent_material(matname, color, transparency)
 
         mat = bpy.data.materials[matname]
@@ -827,7 +827,7 @@ class FitCylinderOperator(Operator):
             
                
         if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-            from ..materials.create_transparent_material_func import create_transparent_material
+            from ..materials.transparent import create_transparent_material
             create_transparent_material(matname, color, transparency)
 
         mat = bpy.data.materials[matname]
@@ -1061,7 +1061,7 @@ class FitEllipsoidOperator(Operator):
             
                
         if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-            from ..materials.create_transparent_material_func import create_transparent_material
+            from ..materials.transparent import create_transparent_material
             create_transparent_material(matname, color, transparency)
 
         mat = bpy.data.materials[matname]
@@ -1203,7 +1203,7 @@ class FitPlaneOperator(Operator):
             
                
         if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-            from ..materials.create_transparent_material_func import create_transparent_material
+            from ..materials.transparent import create_transparent_material
             create_transparent_material(matname, color, transparency)
 
         mat = bpy.data.materials[matname]

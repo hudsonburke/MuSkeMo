@@ -95,7 +95,7 @@ class CreateLandmarkOperator(Operator):
         #as visual geometry, and make the parent body the new target_obj
         if create_parent_body: 
 
-            from ..bodies.create_body_func import create_body
+            from ..bodies.create import create_body
 
             pbodyname = target_obj.name + '_pbody'
 
@@ -113,7 +113,7 @@ class CreateLandmarkOperator(Operator):
 
         target_loc = bpy.context.scene.cursor.location
         
-        from .create_landmark_func import create_landmark
+        from .create import create_landmark
 
         create_landmark(landmark_name = landmark_name, 
                         landmark_radius =landmark_radius, 

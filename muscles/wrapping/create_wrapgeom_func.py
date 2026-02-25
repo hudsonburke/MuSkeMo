@@ -35,7 +35,7 @@ def create_wrapgeom(name, geomtype, collection_name,
     ##### Assign a material
     
     if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-        from ...materials.create_transparent_material_func import create_transparent_material
+        from ...materials.transparent import create_transparent_material
         create_transparent_material(matname, color, transparency)
 
     mat = bpy.data.materials[matname]

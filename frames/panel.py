@@ -175,7 +175,7 @@ class ConstructFrameOperator(Operator):
 
         #local to global rotation matrix, 3x3. Columns are the axes directions in the global frame.
         
-        from .create_frame_func import create_frame
+        from .create import create_frame
         create_frame(name=refframe_name, size = size, 
                      pos_in_global = origin, gRb = gRl,
                      collection_name = colname,
@@ -221,7 +221,7 @@ class ConstructFrame3DCursorOperator(Operator):
 
         #local to global rotation matrix, 3x3. Columns are the axes directions in the global frame.
         
-        from .create_frame_func import create_frame
+        from .create import create_frame
         create_frame(name=refframe_name, size = size, 
                      pos_in_global = origin, gRb = gRl,
                      collection_name = colname,
