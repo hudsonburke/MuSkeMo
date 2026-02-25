@@ -13,7 +13,7 @@ from bpy.types import (PropertyGroup,
                         )
 
 
-from .inertial_properties_presets import InertialPropertiesPresets  #import the presets, that can be extended by the user
+from ..inertial.inertial_properties_presets import InertialPropertiesPresets  #import the presets, that can be extended by the user
 
 #### for the dynamic panel that allows the user to input different scale factor templates for inertial properties / convex hull scaling
 ####  This group is used multiple times within MuSkeMoProperties, so it needs to be registered first! 

@@ -330,8 +330,8 @@ class AssignFrameParentBodyOperator(Operator):
 
         ## import functions euler angles and quaternions from matrix
 
-        from .quaternions import quat_from_matrix
-        from .euler_XYZ_body import euler_XYZbody_from_matrix
+        from ..math_utils.quaternions import quat_from_matrix
+        from ..math_utils.euler_XYZ_body import euler_XYZbody_from_matrix
 
         ## parent joint
 
@@ -542,7 +542,7 @@ class VIEW3D_PT_frame_panel(VIEW3D_PT_MuSkeMo, Panel):  # class naming conventio
         muskemo = scene.muskemo
         layout = self.layout
         
-        from .selected_objects_panel_row_func import CreateSelectedObjRow #dynamic object selection
+        from ..core.selected_objects_panel_row_func import CreateSelectedObjRow #dynamic object selection
 
         CreateSelectedObjRow('FRAME', layout)
         CreateSelectedObjRow('LANDMARK', layout)
@@ -627,7 +627,7 @@ class VIEW3D_PT_frame_panel(VIEW3D_PT_MuSkeMo, Panel):  # class naming conventio
             row.operator("frame.construct_frame_at_cursor", text="Construct Frame at 3D cursor")
             self.layout.row()
 
-        from .selected_objects_panel_row_func import CreateSelectedObjRow
+        from ..core.selected_objects_panel_row_func import CreateSelectedObjRow
         CreateSelectedObjRow('BODY', layout)
 
         row = self.layout.row()

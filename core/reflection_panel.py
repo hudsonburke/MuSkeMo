@@ -68,7 +68,7 @@ class ReflectUnilateralBodiesOperator(ReflectionOperatorBase): #inherits functio
 
         size = bpy.context.scene.muskemo.axes_size #axis length, in meters
 
-        from .create_body_func import create_body
+        from ..bodies.create_body_func import create_body
 
         unilateral_bodies = self.get_unilateral_objects(bodies, body_names, left_string=left_string, right_string=right_string)
 
@@ -141,7 +141,7 @@ class ReflectUnilateralMusclesOperator(ReflectionOperatorBase): #inherits functi
 
         reflect_vect = self.get_reflection_vector(reflection_plane)   
 
-        from .create_muscle_func import create_muscle
+        from ..muscles.create_muscle_func import create_muscle
 
 
         unilateral_muscles = self.get_unilateral_objects(muscles, muscle_names, left_string=left_string, right_string=right_string)
@@ -238,9 +238,9 @@ class ReflectUnilateralWrapsOperator(ReflectionOperatorBase): #inherits function
         reflect_vect = self.get_reflection_vector(reflection_plane)
         reflect_mat = self.get_reflection_matrix(reflection_plane)   
 
-        from .create_wrapgeom_func import create_wrapgeom
-        from .quaternions import quat_from_matrix
-        from .euler_XYZ_body import euler_XYZbody_from_matrix
+        from ..muscles.wrapping.create_wrapgeom_func import create_wrapgeom
+        from ..math_utils.quaternions import quat_from_matrix
+        from ..math_utils.euler_XYZ_body import euler_XYZbody_from_matrix
 
 
         unilateral_wraps = self.get_unilateral_objects(wraps, wrap_names, left_string=left_string, right_string=right_string)
@@ -406,7 +406,7 @@ class ReflectUnilateralFramesOperator(ReflectionOperatorBase): #inherits functio
 
         size = bpy.context.scene.muskemo.frame_axes_size #axis length, in meters
 
-        from .create_frame_func import create_frame
+        from ..frames.create_frame_func import create_frame
 
         unilateral_frames = self.get_unilateral_objects(frames, frame_names, left_string=left_string, right_string=right_string)
 
@@ -490,9 +490,9 @@ class ReflectUnilateralJointsOperator(ReflectionOperatorBase): #inherits functio
 
         radius = bpy.context.scene.muskemo.jointsphere_size #axis length, in meters
 
-        from .create_joint_func import create_joint
-        from .quaternions import quat_from_matrix
-        from .euler_XYZ_body import euler_XYZbody_from_matrix
+        from ..joints.create_joint_func import create_joint
+        from ..math_utils.quaternions import quat_from_matrix
+        from ..math_utils.euler_XYZ_body import euler_XYZbody_from_matrix
 
         unilateral_joints = self.get_unilateral_objects(joints, joint_names, left_string=left_string, right_string=right_string)
 
@@ -646,7 +646,7 @@ class ReflectUnilateralContactsOperator(ReflectionOperatorBase): #inherits funct
 
         radius = bpy.context.scene.muskemo.contact_radius #axis length, in meters
 
-        from .create_contact_func import create_contact
+        from ..contacts.create_contact_func import create_contact
        
         unilateral_contacts = self.get_unilateral_objects(contacts, contact_names, left_string=left_string, right_string=right_string)
 

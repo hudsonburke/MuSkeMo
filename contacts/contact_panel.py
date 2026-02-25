@@ -185,7 +185,7 @@ class VIEW3D_PT_contact_panel(VIEW3D_PT_MuSkeMo, Panel):  # class naming convent
         layout = self.layout
 
         # First row for contact collection
-        from .selected_objects_panel_row_func import CreateSelectedObjRow
+        from ..core.selected_objects_panel_row_func import CreateSelectedObjRow
 
         CreateSelectedObjRow('CONTACT', layout)
         

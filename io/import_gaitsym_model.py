@@ -177,8 +177,8 @@ class ImportGaitsymModel(Operator):
         gaitsym_import_euler = muskemo.rotate_on_import
         gaitsym_import_euler = (gaitsym_import_euler[0],gaitsym_import_euler[1],gaitsym_import_euler[2])
 
-        from .quaternions import (matrix_from_quaternion, quat_from_matrix)
-        from .euler_XYZ_body import matrix_from_euler_XYZbody
+        from ..math_utils.quaternions import (matrix_from_quaternion, quat_from_matrix)
+        from ..math_utils.euler_XYZ_body import matrix_from_euler_XYZbody
         if gaitsym_import_euler != (0,0,0): #if not zero rotation, we set up an import rotation matrix
             
             [import_gRi, import_iRg] = matrix_from_euler_XYZbody(np.deg2rad(gaitsym_import_euler))

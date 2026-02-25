@@ -160,7 +160,7 @@ class ExportBodiesOperator(
         return super().invoke(context, event)
 
     def execute(self, context):
-        from .write_inprop_func import write_inprop
+        from ..scripts.write_inprop_func import write_inprop
 
         delimiter = bpy.context.scene.muskemo.delimiter  # user assigned
         body_colname = bpy.context.scene.muskemo.body_collection
@@ -194,7 +194,7 @@ class ExportJointsOperator(
         return super().invoke(context, event)
 
     def execute(self, context):
-        from .write_joints_func import write_joints
+        from ..scripts.write_joints_func import write_joints
 
         delimiter = bpy.context.scene.muskemo.delimiter  # user assigned
         joint_colname = bpy.context.scene.muskemo.joint_collection
@@ -255,7 +255,7 @@ class ExportMusclesOperator(
         return super().invoke(context, event)
 
     def execute(self, context):
-        from .write_muscles_func import write_muscles
+        from ..scripts.write_muscles_func import write_muscles
 
         delimiter = bpy.context.scene.muskemo.delimiter  # user assigned
         muscle_colname = bpy.context.scene.muskemo.muscle_collection
@@ -283,7 +283,7 @@ class ExportWrappingOperator(
         return super().invoke(context, event)
 
     def execute(self, context):
-        from .write_wrapping_func import write_wrapping
+        from ..scripts.write_wrapping_func import write_wrapping
 
         delimiter = bpy.context.scene.muskemo.delimiter  # user assigned
         muscle_colname = bpy.context.scene.muskemo.wrap_geom_collection
@@ -315,7 +315,7 @@ class ExportMeshInPropsOperator(
         return super().invoke(context, event)
 
     def execute(self, context):
-        from .write_inprop_func import write_inprop
+        from ..scripts.write_inprop_func import write_inprop
 
         delimiter = bpy.context.scene.muskemo.delimiter  # user assigned
         mesh_colname = bpy.context.scene.muskemo.source_object_collection
@@ -347,7 +347,7 @@ class ExportContactsOperator(
         return super().invoke(context, event)
 
     def execute(self, context):
-        from .write_pos_and_pbody_func import write_pos_and_pbody
+        from ..scripts.write_pos_and_pbody_func import write_pos_and_pbody
 
         delimiter = bpy.context.scene.muskemo.delimiter  # user assigned
         contact_colname = bpy.context.scene.muskemo.contact_collection
@@ -379,7 +379,7 @@ class ExportLandmarksOperator(
         return super().invoke(context, event)
 
     def execute(self, context):
-        from .write_pos_and_pbody_func import write_pos_and_pbody
+        from ..scripts.write_pos_and_pbody_func import write_pos_and_pbody
 
         delimiter = bpy.context.scene.muskemo.delimiter  # user assigned
         landmark_colname = bpy.context.scene.muskemo.landmark_collection
@@ -411,7 +411,7 @@ class ExportFramesOperator(
         return super().invoke(context, event)
 
     def execute(self, context):
-        from .write_frames_func import write_frames
+        from ..scripts.write_frames_func import write_frames
 
         delimiter = bpy.context.scene.muskemo.delimiter  # user assigned
         frame_colname = bpy.context.scene.muskemo.frame_collection

@@ -2,8 +2,8 @@ import bpy
 from mathutils import Vector
 def write_frames(context, filepath, collection_name, delimiter,number_format):
     
-    from .quaternions import quat_from_matrix
-    from .euler_XYZ_body import euler_XYZbody_from_matrix
+    from ..math_utils.quaternions import quat_from_matrix
+    from ..math_utils.euler_XYZ_body import euler_XYZbody_from_matrix
 
 
     file = open(filepath, 'w', encoding='utf-8') #create or open a file called muscle_landmarks,  "w" means it's writeable

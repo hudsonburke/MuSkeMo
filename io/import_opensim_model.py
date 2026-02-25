@@ -69,8 +69,8 @@ class ImportOpenSimModel(Operator):
         time1 = time.time()        
     
 
-        from .quaternions import (matrix_from_quaternion, quat_from_matrix)
-        from .euler_XYZ_body import (matrix_from_euler_XYZbody, euler_XYZbody_from_matrix)
+        from ..math_utils.quaternions import (matrix_from_quaternion, quat_from_matrix)
+        from ..math_utils.euler_XYZ_body import (matrix_from_euler_XYZbody, euler_XYZbody_from_matrix)
     
         def get_body_data(model):
             body_set = model.find('BodySet')

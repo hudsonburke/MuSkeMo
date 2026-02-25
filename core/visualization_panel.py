@@ -253,12 +253,12 @@ class ConvertMusclesToSimpleViz(Operator):
 
         ### add simple muscle visualization modifier
         if "SimpleMuscleNode" not in bpy.data.node_groups: #if the node group doesn't exist
-            from .simple_muscle_viz_node import (create_simple_muscle_node_group, add_simple_muscle_node)
+            from ..scripts.simple_muscle_viz_node import (create_simple_muscle_node_group, add_simple_muscle_node)
             create_simple_muscle_node_group() #create the node group
             
 
         else:
-            from .simple_muscle_viz_node import add_simple_muscle_node
+            from ..scripts.simple_muscle_viz_node import add_simple_muscle_node
  
         
         for muscle in coll.objects:

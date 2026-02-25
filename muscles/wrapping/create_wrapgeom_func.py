@@ -12,8 +12,8 @@ def create_wrapgeom(name, geomtype, collection_name,
                     dimensions = {},
                     ):
     
-    from .quaternions import matrix_from_quaternion
-    from .euler_XYZ_body import matrix_from_euler_XYZbody
+    from ...math_utils.quaternions import matrix_from_quaternion
+    from ...math_utils.euler_XYZ_body import matrix_from_euler_XYZbody
 
     #check if the collection name exists, and if not create it
     if collection_name not in bpy.data.collections:
@@ -35,7 +35,7 @@ def create_wrapgeom(name, geomtype, collection_name,
     ##### Assign a material
     
     if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-        from .create_transparent_material_func import create_transparent_material
+        from ...materials.create_transparent_material_func import create_transparent_material
         create_transparent_material(matname, color, transparency)
 
     mat = bpy.data.materials[matname]

@@ -155,8 +155,8 @@ class AssignParentBodyOperator(Operator):
         joint['default_pose'] = list(joint.matrix_world) #track the default pose to ensure the exported values are in the same pose. This overwrites it with the same existing value (or it would have been caught by the error check above, or creates it anew)
 
 
-        from .quaternions import quat_from_matrix
-        from .euler_XYZ_body import euler_XYZbody_from_matrix
+        from ..math_utils.quaternions import quat_from_matrix
+        from ..math_utils.euler_XYZ_body import euler_XYZbody_from_matrix
         
         #global pos and or
         #if global pos is NaN or simply incorrect
@@ -271,8 +271,8 @@ class AssignChildBodyOperator(Operator):
 
         joint['default_pose'] = list(joint.matrix_world) #track the default pose to ensure the exported values are in the same pose. This overwrites it with the same existing value (or it would have been caught by the error check above, or creates it anew)
 
-        from .quaternions import quat_from_matrix
-        from .euler_XYZ_body import euler_XYZbody_from_matrix      
+        from ..math_utils.quaternions import quat_from_matrix
+        from ..math_utils.euler_XYZ_body import euler_XYZbody_from_matrix      
     
         #update pos and or in global
         gRb_joint = joint.matrix_world.to_3x3() 
@@ -559,7 +559,7 @@ class FitSphereGeomOperator(Operator):
             
                
         if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-            from .create_transparent_material_func import create_transparent_material
+            from ..materials.create_transparent_material_func import create_transparent_material
             create_transparent_material(matname, color, transparency)
 
         mat = bpy.data.materials[matname]
@@ -676,7 +676,7 @@ class FitSphereLSOperator(Operator):
             
                
         if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-            from .create_transparent_material_func import create_transparent_material
+            from ..materials.create_transparent_material_func import create_transparent_material
             create_transparent_material(matname, color, transparency)
 
         mat = bpy.data.materials[matname]
@@ -740,7 +740,7 @@ class FitCylinderOperator(Operator):
 
 
         ### fitting starts here
-        from .fit_cylinder_eberly import (preprocess, G, fit_cylinder)
+        from ..math_utils.fit_cylinder_eberly import (preprocess, G, fit_cylinder)
         minError, C, W, rSqr = fit_cylinder(n, points)  #C is the center, W is the cylinder axis direction, rSqr = radius squared
 
         ### fitting ends here
@@ -753,7 +753,7 @@ class FitCylinderOperator(Operator):
         z_axis = Vector((0,0,1))
         quat_diff = z_axis.rotation_difference(Vector(W))  #this gives a unit quaternion for a rotation matrix gRb
         
-        from .quaternions import matrix_from_quaternion
+        from ..math_utils.quaternions import matrix_from_quaternion
         gRb, bRg = matrix_from_quaternion(quat_diff)  #get the rotation matrix
 
               
@@ -827,7 +827,7 @@ class FitCylinderOperator(Operator):
             
                
         if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-            from .create_transparent_material_func import create_transparent_material
+            from ..materials.create_transparent_material_func import create_transparent_material
             create_transparent_material(matname, color, transparency)
 
         mat = bpy.data.materials[matname]
@@ -1061,7 +1061,7 @@ class FitEllipsoidOperator(Operator):
             
                
         if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-            from .create_transparent_material_func import create_transparent_material
+            from ..materials.create_transparent_material_func import create_transparent_material
             create_transparent_material(matname, color, transparency)
 
         mat = bpy.data.materials[matname]
@@ -1203,7 +1203,7 @@ class FitPlaneOperator(Operator):
             
                
         if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-            from .create_transparent_material_func import create_transparent_material
+            from ..materials.create_transparent_material_func import create_transparent_material
             create_transparent_material(matname, color, transparency)
 
         mat = bpy.data.materials[matname]
@@ -1509,7 +1509,7 @@ class VIEW3D_PT_joint_panel(VIEW3D_PT_MuSkeMo,Panel):  # class naming convention
         
         ### selected joints and bodies
 
-        from .selected_objects_panel_row_func import CreateSelectedObjRow
+        from ..core.selected_objects_panel_row_func import CreateSelectedObjRow
 
         CreateSelectedObjRow('JOINT', layout)
         ###
@@ -1637,7 +1637,7 @@ class VIEW3D_PT_joint_utilities_subpanel(VIEW3D_PT_MuSkeMo,Panel):  # class nami
 
         ### selected objects that are not joints
 
-        from .selected_objects_panel_row_func import CreateSelectedObjRow
+        from ..core.selected_objects_panel_row_func import CreateSelectedObjRow
 
         CreateSelectedObjRow('NOTJOINT', layout)
         row = self.layout.row()

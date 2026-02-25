@@ -95,7 +95,7 @@ class CreateLandmarkOperator(Operator):
         #as visual geometry, and make the parent body the new target_obj
         if create_parent_body: 
 
-            from .create_body_func import create_body
+            from ..bodies.create_body_func import create_body
 
             pbodyname = target_obj.name + '_pbody'
 

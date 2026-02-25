@@ -2,8 +2,8 @@ import bpy
 from mathutils import (Vector, Matrix)
 import numpy as np
 def write_joints(context, filepath, collection_name, delimiter, number_format, self):
-    from .euler_XYZ_body import euler_XYZbody_from_matrix
-    from .quaternions import quat_from_matrix
+    from ..math_utils.euler_XYZ_body import euler_XYZbody_from_matrix
+    from ..math_utils.quaternions import quat_from_matrix
 
     coll = bpy.data.collections[collection_name]
 

@@ -64,7 +64,7 @@ class MeshAlignnmentICPPointToPlaneOperator(Operator):
         sample_ratio_end = muskemo.icp_sample_ratio_end
         max_sample_ratio_after = muskemo.icp_max_sample_ratio_after
 
-        from .icp_point_to_plane import point_to_plane_icp_subsample
+        from ..mesh_tools.icp_point_to_plane import point_to_plane_icp_subsample
 
         point_to_plane_icp_subsample(free_obj = free_obj,
                                      target_obj=  target_obj,
@@ -114,7 +114,7 @@ class MeshIntersectionCheckerOperator(Operator):
 
         #### check for intersections
 
-        from .two_object_intersection_func import check_bvh_intersection
+        from ..mesh_tools.two_object_intersection_func import check_bvh_intersection
         #Get the dependency graph
         depsgraph = bpy.context.evaluated_depsgraph_get()
 

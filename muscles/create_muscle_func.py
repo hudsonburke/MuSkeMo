@@ -106,7 +106,7 @@ def create_muscle (muscle_name, point_position, body_name = '',
         '''
         ### seperate materials for each muscle so that they can be individually animated
 
-        from .create_muscle_material_func import create_muscle_material
+        from ..materials.create_muscle_material_func import create_muscle_material
 
         mat = create_muscle_material(muscle_name)
 
@@ -114,12 +114,12 @@ def create_muscle (muscle_name, point_position, body_name = '',
       
         ### add simple muscle visualization modifier
         if "SimpleMuscleNode" not in bpy.data.node_groups:
-            from .simple_muscle_viz_node import (create_simple_muscle_node_group, add_simple_muscle_node)
+            from ..scripts.simple_muscle_viz_node import (create_simple_muscle_node_group, add_simple_muscle_node)
             create_simple_muscle_node_group() #create the node group
             
 
         else:
-            from .simple_muscle_viz_node import add_simple_muscle_node
+            from ..scripts.simple_muscle_viz_node import add_simple_muscle_node
 
         add_simple_muscle_node(muscle_name)    
 

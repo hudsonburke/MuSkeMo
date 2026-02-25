@@ -579,7 +579,7 @@ class VIEW3D_PT_body_panel(VIEW3D_PT_MuSkeMo, Panel):  # class naming convention
         
          ### selected joints and bodies
 
-        from .selected_objects_panel_row_func import CreateSelectedObjRow
+        from ..core.selected_objects_panel_row_func import CreateSelectedObjRow
 
         CreateSelectedObjRow('BODY', layout)
         

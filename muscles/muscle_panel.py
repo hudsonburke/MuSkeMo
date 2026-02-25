@@ -349,7 +349,7 @@ class CreateWrappingGeometryOperator(Operator):
             self.report({'ERROR'}, "Object with the name '" + name + "' already exists in the Blender scene. Please choose a unique name for this wrapping geometry. Operation aborted")
             return {'FINISHED'} 
     
-        from .create_wrapgeom_func import create_wrapgeom
+        from .wrapping.create_wrapgeom_func import create_wrapgeom
 
         if wrap_geom_type == 'Cylinder':
 
@@ -431,8 +431,8 @@ class AssignWrapGeomParentOperator(Operator):
                 
                 ## import functions euler angles and quaternions from matrix
 
-                from .quaternions import quat_from_matrix
-                from .euler_XYZ_body import euler_XYZbody_from_matrix
+                from ..math_utils.quaternions import quat_from_matrix
+                from ..math_utils.euler_XYZ_body import euler_XYZbody_from_matrix
 
                 frame = bpy.data.objects[parent_body['local_frame']]
 
@@ -569,7 +569,7 @@ class AssignWrappingOperator(Operator):
         for obj in sel_obj:
             obj.select_set(False)
 
-        from .assign_muscle_wrap_func import assign_muscle_wrap
+        from .wrapping.assign_muscle_wrap_func import assign_muscle_wrap
 
         assign_muscle_wrap(wrap_obj_name = wrap_obj_name, muscle_name = muscle_name, self = self)
 
@@ -782,8 +782,8 @@ class SingleDOFLengthMomentArmOperator(Operator):
         # Convert degrees to radians for each angle
         angle_1_range_rad = np.deg2rad(angle_1_range)
 
-        from .euler_XYZ_body import matrix_from_euler_XYZbody
-        from .compute_curve_length import compute_curve_length
+        from ..math_utils.euler_XYZ_body import matrix_from_euler_XYZbody
+        from ..math_utils.compute_curve_length import compute_curve_length
         
         ## unit_vec will be multiplied by the instantaneous angle, resulting in a 3,1 vector that contains the angle and 2 zeros
         if joint_1_dof == 'Rx':
@@ -866,7 +866,7 @@ class SingleDOFLengthMomentArmOperator(Operator):
         if generate_plot_bool: #bool user switch
             print('plotting')
 
-            from .create_2D_plot import create_2D_plot
+            from ..scripts.create_2D_plot import create_2D_plot
 
             plot_data = length_data.copy()
 
@@ -1048,7 +1048,7 @@ class Regenerate2DMusclePlotOperator(Operator):
             plot_data['x_unit'] = 'degrees'
             plot_data['x_data'] = np.rad2deg(plot_data['x_data'])
 
-        from .create_2D_plot import create_2D_plot
+        from ..scripts.create_2D_plot import create_2D_plot
 
                 
         create_2D_plot(
@@ -1108,7 +1108,7 @@ class AddLiveLengthViewerNodeOperator(Operator):
 
         
 
-        from .live_length_viewer_node import add_live_length_viewer_node
+        from ..scripts.live_length_viewer_node import add_live_length_viewer_node
 
         add_live_length_viewer_node(muscle)
 
@@ -1137,7 +1137,7 @@ class VIEW3D_PT_muscle_panel(VIEW3D_PT_MuSkeMo, Panel):  # class naming conventi
         muskemo = scene.muskemo
         
 
-        from .selected_objects_panel_row_func import CreateSelectedObjRow
+        from ..core.selected_objects_panel_row_func import CreateSelectedObjRow
 
         CreateSelectedObjRow('MUSCLE', layout)
         CreateSelectedObjRow('BODY', layout)
@@ -1211,7 +1211,7 @@ class VIEW3D_PT_wrap_subpanel(VIEW3D_PT_MuSkeMo,Panel):  # class naming conventi
         scene = context.scene
         muskemo = scene.muskemo
 
-        from .selected_objects_panel_row_func import CreateSelectedObjRow
+        from ..core.selected_objects_panel_row_func import CreateSelectedObjRow
 
         CreateSelectedObjRow('WRAP', layout)
         CreateSelectedObjRow('BODY', layout)
@@ -1269,7 +1269,7 @@ class VIEW3D_PT_moment_arm_subpanel(VIEW3D_PT_MuSkeMo,Panel):  # class naming co
         muskemo = scene.muskemo
 
         row = self.layout.row()
-        from .selected_objects_panel_row_func import CreateSelectedObjRow
+        from ..core.selected_objects_panel_row_func import CreateSelectedObjRow
 
         CreateSelectedObjRow('MUSCLE', layout)
         CreateSelectedObjRow('JOINT', layout)
@@ -1325,7 +1325,7 @@ class VIEW3D_PT_plotting_subpanel(VIEW3D_PT_MuSkeMo,Panel):  # class naming conv
         scene = context.scene
         muskemo = scene.muskemo
 
-        from .selected_objects_panel_row_func import CreateSelectedObjRow
+        from ..core.selected_objects_panel_row_func import CreateSelectedObjRow
         CreateSelectedObjRow('MUSCLE', layout)
 
         

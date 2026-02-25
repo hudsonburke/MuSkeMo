@@ -485,7 +485,7 @@ class ImportTrajectory(Operator):
                     Rmat_z = Matrix([[1,0,0],[0,1,0],[0,0,1]])
 
                     from .axis_angle import matrix_from_axis_angle
-                    from .euler_XYZ_body import (matrix_from_euler_XYZbody, euler_XYZbody_from_matrix)
+                    from ..math_utils.euler_XYZ_body import (matrix_from_euler_XYZbody, euler_XYZbody_from_matrix)
 
                     for idx in entries_in_traj_coor_list:
                         

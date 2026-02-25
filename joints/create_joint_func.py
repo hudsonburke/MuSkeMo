@@ -3,8 +3,8 @@ import bmesh
 from mathutils import Matrix
 from math import nan
 #from .euler_XYZ_body import euler_XYZbody_from_matrix
-from .quaternions import matrix_from_quaternion
-from .euler_XYZ_body import matrix_from_euler_XYZbody
+from ..math_utils.quaternions import matrix_from_quaternion
+from ..math_utils.euler_XYZ_body import matrix_from_euler_XYZbody
 
 def create_joint(name, radius, is_global = True, collection_name = 'Joint centers',
                  parent_body='not_assigned', child_body='not_assigned', 
@@ -230,7 +230,7 @@ def create_joint(name, radius, is_global = True, collection_name = 'Joint center
     ##### Assign a material
     
     if matname not in bpy.data.materials:   #if the material doesn't exist, get it
-        from .create_transparent_material_func import create_transparent_material
+        from ..materials.create_transparent_material_func import create_transparent_material
         create_transparent_material(matname, color, transparency)
 
     mat = bpy.data.materials[matname]

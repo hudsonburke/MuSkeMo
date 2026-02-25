@@ -2,8 +2,8 @@ import bpy
 import numpy as np
 from mathutils import Vector
 def write_wrapping(context, filepath, collection_name, delimiter, number_format):
-    from .euler_XYZ_body import euler_XYZbody_from_matrix
-    from .quaternions import quat_from_matrix
+    from ...math_utils.euler_XYZ_body import euler_XYZbody_from_matrix
+    from ...math_utils.quaternions import quat_from_matrix
 
     file = open(filepath, 'w', encoding='utf-8') #create or open a file,  "w" means it's writeable
     
