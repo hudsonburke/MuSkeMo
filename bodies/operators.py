@@ -27,9 +27,7 @@ class CreateNewBodyOperator(Operator):
         )  # name for the collection that will contain the hulls
 
         try:
-            bpy.data.objects[
-                name
-            ]  # try out if an object with the new body's name already exists
+            bpy.data.objects[name]
 
         except:  # if not, create the new body
 
